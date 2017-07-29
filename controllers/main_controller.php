@@ -1,9 +1,12 @@
 <?php
 
-class main_controller {
+class main_controller extends master_controller {
 
     public function __construct() {
-        echo 'nice load bruh';
+
+        $mainpage = 'index.twig';
+
+        $this->process_page($mainpage);
     }
 
 
