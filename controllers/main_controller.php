@@ -6,7 +6,8 @@ class main_controller extends master_controller {
 
         $mainpage = 'index.twig';
 
-        $this->process_page($mainpage);
+        $this -> process_page($mainpage);
+
     }
 
 
