@@ -1,6 +1,6 @@
 <?php
 
-require_once('./etc/config.php');
+require_once('./etc/base.php');
 
 $page = url_seg(0);
 

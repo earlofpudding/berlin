@@ -1,5 +1,15 @@
 {% include 'header.html' %}
 
-<h1>{{ msg|e }}</h1>
+<div id="wrapper">
+    <h1>{{ settings.siteinfo.title }} - {{ settings.siteinfo.subtitle }}</h1>
+
+    <hr>
+
+    <h2>Recent Posts</h2>
+    {% for post in content %}
+        {{ post | raw }}
+    {% endfor %}
+</div>
+
 </body>
 </html>
