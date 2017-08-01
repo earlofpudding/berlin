@@ -5,9 +5,8 @@ class main_controller extends master_controller {
     public function __construct() {
 
         $mainpage = 'index.twig';
-        $config = parent::load_config();
 
-        $config['siteinfo']['head_title'] = "test";
+        $config = parent::prepare_config();
 
         $model = new main_model();
         $data = $model -> load_data( $config, 100 );

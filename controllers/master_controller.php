@@ -6,6 +6,12 @@ class master_controller {
         return parse_ini_file("config.ini", true);
     }
 
+    protected function prepare_config() {
+        $config = $this -> load_config();
+        $config['siteinfo']['head_title'] = "test";
+        return $config;
+    } 
+
     protected function load_twig() {
         $twig =  new Twig_Environment(
             new Twig_Loader_Filesystem("./views"),

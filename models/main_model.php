@@ -2,11 +2,6 @@
 
 class main_model extends master_model {
 
-    public function __construct() {
-
-    }
-
-
     public function load_data( $config, $max_length = 0 ) {
 
         // Pull content array based on homepage.posts in config

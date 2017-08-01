@@ -39,12 +39,10 @@ class master_model {
     }
 
     protected function make_link( $slug, $config, $type = "article" ){
-
         if($type === "article"){
             $link = $config["siteinfo"]["basedir"] . $config["siteinfo"]["articledir"] . $slug;
             return $link;
         }
-
     }
 
 }
