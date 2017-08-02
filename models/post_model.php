@@ -2,8 +2,23 @@
 
 class post_model extends master_model {
 
-    public function __construct() {
-        echo 'Article controller loaded properly';
+    public function load_data( $config ) {
+
+        if(url_seg(2) !== null && url_seg(2) !== "")
+            $url = url_seg(2);
+        else {
+            http_response_code(404);
+            die("Error 404 - Page not found :( ");
+        }
+
+        $pad = str_replace("-", " ", $url);
+        $pad = ucwords($pad);
+
+        // FIX THIS, FIND BETTER WAY TO FIND THE FILE
+        foreach (glob("./content/*$pad*.md") as $filename);
+
+        echo $filename;
+
     }
 
 }
