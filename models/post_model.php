@@ -4,6 +4,7 @@ class post_model extends master_model {
 
     public function load_data( $config ) {
 
+        // Check if url isnt empty
         if(url_seg(2) !== null && url_seg(2) !== "")
             $url = url_seg(2);
         else {
@@ -17,7 +18,7 @@ class post_model extends master_model {
         // FIX THIS, FIND BETTER WAY TO FIND THE FILE
         foreach (glob("./content/*$pad*.md") as $filename);
 
-        echo $filename;
+        $data = pull_post( $filename );
 
     }
 

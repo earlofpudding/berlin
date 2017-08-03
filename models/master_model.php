@@ -18,9 +18,7 @@ class master_model {
 
         for($i = 0; $i < $num; $i++){
             // Pull title of post from filename
-            $title = $files[$i];
-            $title = substr($title, 13, strlen($title));
-            $title = str_replace(".md", "", $title);
+            $title = make_title( $files[$i] );
             array_push($posts["titles"], $title);
 
             // Create slug from title
@@ -38,11 +36,32 @@ class master_model {
         return $posts;
     }
 
-    protected function make_link( $slug, $config, $type = "article" ){
+    protected function make_title ( $file ) {
+        $title = substr($title, 13, strlen($title));
+        $title = str_replace(".md", "", $title);
+        return $title;
+    }
+
+    protected function make_link( $slug, $config, $type = "article" ) {
         if($type === "article"){
             $link = $config["siteinfo"]["basedir"] . $config["siteinfo"]["articledir"] . $slug;
             return $link;
         }
+    }
+
+    protected function pull_post( $file ) { 
+        $post = array(
+            "title" => "",
+            "body" => ""
+        );
+
+        $body = file_get_contents("./content/$file");
+        $title = make_title( $file );
+
+        $post["title"] = $title;
+        $post["body"] = $body;
+
+        return $post;
     }
 
 }
