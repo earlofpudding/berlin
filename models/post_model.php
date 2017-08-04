@@ -18,7 +18,9 @@ class post_model extends master_model {
         // FIX THIS, FIND BETTER WAY TO FIND THE FILE
         foreach (glob("./content/*$pad*.md") as $filename);
 
-        $data = pull_post( $filename );
+        $data = parent::pull_post( $filename );
+
+        return $data;
 
     }
 

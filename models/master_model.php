@@ -18,7 +18,7 @@ class master_model {
 
         for($i = 0; $i < $num; $i++){
             // Pull title of post from filename
-            $title = make_title( $files[$i] );
+            $title = self::make_title( $files[$i] );
             array_push($posts["titles"], $title);
 
             // Create slug from title
@@ -36,7 +36,7 @@ class master_model {
         return $posts;
     }
 
-    protected function make_title ( $file ) {
+    protected function make_title ( $title ) {
         $title = substr($title, 13, strlen($title));
         $title = str_replace(".md", "", $title);
         return $title;
@@ -55,8 +55,12 @@ class master_model {
             "body" => ""
         );
 
-        $body = file_get_contents("./content/$file");
-        $title = make_title( $file );
+        $body = file_get_contents($file);
+        $body = Parsedown::instance()->text($body);
+
+        // Find more elegant method for this
+        $file = str_replace("./content/", "", $file);
+        $title = self::make_title( $file );
 
         $post["title"] = $title;
         $post["body"] = $body;

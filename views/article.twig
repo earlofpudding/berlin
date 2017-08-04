@@ -10,9 +10,9 @@
     <hr>
 
     <div class="post">
-        <h2> {{ content.post.title }} </h2>
+        <h2> {{ content.title | raw }} </h2>
 
-        {{ content.post.body }}
+        {{ content.body | raw }}
     </div>
 
 </div>
