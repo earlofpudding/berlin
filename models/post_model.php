@@ -16,9 +16,9 @@ class post_model extends master_model {
         $pad = ucwords($pad);
 
         // FIX THIS, FIND BETTER WAY TO FIND THE FILE
-        foreach (glob("./content/*$pad*.md") as $filename);
-
-        $data = parent::pull_post( $filename );
+        foreach (glob("./content/*$pad*.md") as $filename) {
+                $data = parent::pull_post($filename);
+        }
 
         return $data;
 

@@ -23,7 +23,7 @@ class master_model {
 
             // Create slug from title
             $slug = str_replace(" ", "-", $title);
-            preg_replace('/[^A-Za-z0-9\-]/', '', $slug);
+            $slug = preg_replace('/[^A-Za-z0-9\-]/', '', $slug);
             $slug = '/'.strtolower($slug);
             array_push($posts["slugs"], $slug);
 
